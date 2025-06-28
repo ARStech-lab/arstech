@@ -1,0 +1,5 @@
+1. powershell -c "irm https://bun.sh/install.ps1 | iex" -> run in admin mode powershell only
+2. bun -v -> check if installed
+3. navigate to path where webpage is located.and open terminal.
+4. bun install
+5. bun dev

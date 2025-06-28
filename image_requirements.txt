@@ -1,0 +1,5 @@
+hero image size - 1930 x 750 or same ratio
+product images in index page - 400 x 320 [710 x570] or 5:4
+product images in product page - 500 x 500 or 1:1
+images in projects page - 16:9 
+peoples images in about page - 700 x 700 or 1:1
