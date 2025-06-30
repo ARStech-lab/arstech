@@ -46,7 +46,7 @@ const Header = forwardRef((props, ref: Ref<HTMLElement>) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <div>
-                <img src="./public/assets/header/ARS_TECH_w.png" alt="ARSTECH" className="h-[65px] w-[auto]" />
+                <img src="/public/assets/header/ARS_TECH_w.png" alt="ARSTECH" className="h-[65px] w-[auto]" />
               </div>
             </Link>
           </div>
