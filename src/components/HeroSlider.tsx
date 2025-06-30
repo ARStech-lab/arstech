@@ -45,7 +45,7 @@ const HeroSlider = () => {
     },
     {
       id: 8,
-      image: "./assets/hero/1.jpg",
+      image: "./assets/hero/8.webp",
       link: "/products#smart-home"
     }
   ];

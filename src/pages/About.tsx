@@ -150,7 +150,7 @@ const About = () => {
               </div>
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+                  src="./assets/about/4.webp"
                   alt="ARSTECH Journey"
                   className="w-full h-80 object-cover rounded-lg shadow-xl"
                 />
