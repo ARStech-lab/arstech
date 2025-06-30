@@ -255,21 +255,24 @@ const Index = () => {
 
       {/* New Section for Contact Us - Separate Block with Shades of White */}
       <section className="py-20 bg-gradient-to-r from-gray-50 to-white"> {/* Gradient from very light gray to white */}
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-5xl font-extrabold text-[#0E0E55] mb-6 animate-on-scroll">
-            Have a project in mind?
-          </h2>
-          <p className="text-xl text-gray-700 mb-10 leading-relaxed animate-on-scroll">
-            Let's discuss your embedded systems needs. Our expert engineers are ready to provide tailored solutions.
-          </p>
-          <button
-            onClick={handleTalkToEngineer}
-            className="bg-gradient-to-r from-[#004578] to-[#ff2c2c] text-white py-4 px-12 rounded-lg hover:from-[#1A1A77] hover:to-[#2626AA] transition-all duration-300 font-bold shadow-xl text-xl uppercase tracking-wide transform hover:scale-105 animate-on-scroll"
-          >
-            Talk to an Engineer
-          </button>
-        </div>
-      </section>
+  <div className="max-w-4xl mx-auto px-4 text-center">
+    <h2 className="text-5xl font-extrabold text-[#0E0E55] mb-6 animate-on-scroll">
+      Have a project in mind?
+    </h2>
+    <p className="text-xl text-gray-700 mb-10 leading-relaxed animate-on-scroll">
+      Let's discuss your embedded systems needs. Our expert engineers are ready to provide tailored solutions.
+    </p>
+    {/* Changed from <button> to <a> tag */}
+    <a
+      href="https://wa.me/919494947970" // WhatsApp link
+      target="_blank" // Opens in a new tab
+      rel="noopener noreferrer" // Recommended for security when using target="_blank"
+      className="bg-gradient-to-r from-[#004578] to-[#ff2c2c] text-white py-4 px-12 rounded-lg hover:from-[#1A1A77] hover:to-[#2626AA] transition-all duration-300 font-bold shadow-xl text-xl uppercase tracking-wide transform hover:scale-105 animate-on-scroll"
+    >
+      Talk to an Engineer
+    </a>
+  </div>
+</section>
 
       <Footer />
     </div>
