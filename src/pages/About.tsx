@@ -30,19 +30,19 @@ const About = () => {
       name: "Srinivas Surepally",
       role: "Founder & Lead Engineer",
       experience: "15+ Years Experience",
-      image: "/assets/about/1.webp" // Local image path
+      image: "./assets/about/1.webp" // Local image path
     },
     {
       name: "Team Member 2",
       role: "Senior Engineer",
       experience: "10+ Years Experience",
-      image: "/assets/about/2.webp" // Local image path
+      image: "./assets/about/2.webp" // Local image path
     },
     {
       name: "Team Member 3",
       role: "Product Designer",
       experience: "8+ Years Experience",
-      image: "/assets/about/3.webp" // Local image path
+      image: "./assets/about/3.webp" // Local image path
     }
   ];
 
@@ -92,7 +92,7 @@ const About = () => {
                 <div className="mt-8">
                   <h3 className="text-2xl font-bold text-foreground mb-4">Our Certifications</h3>
                   <img
-                    src="/assets/about/certificates.webp"
+                    src="./assets/about/certificates.webp"
                     alt="ARS Tech Certificates"
                     className="w-full h-auto object-contain rounded-lg shadow-lg"
                   />
@@ -101,7 +101,7 @@ const About = () => {
               </div>
               <div className="lg:col-span-2 animate-on-scroll">
                 <img
-                  src="/assets/about/office.webp"
+                  src="./assets/about/office.webp"
                   alt="ARSTECH Office"
                   className="w-full h-96 object-cover rounded-lg shadow-xl"
                 />

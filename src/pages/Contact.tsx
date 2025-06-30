@@ -1,29 +1,31 @@
-import { useState, useEffect, useRef } from 'react'; // Keep these imports
+import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import { MessageCircle, Phone, Mail, Clock } from 'lucide-react';
 
 const Contact = () => {
-  const [headerHeight, setHeaderHeight] = useState(0); // State to store header height
-  const headerRef = useRef<HTMLElement>(null); // Ref to attach to the Header component
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const headerRef = useRef<HTMLElement>(null);
 
-  // Effect to measure header height after it renders
   useEffect(() => {
     if (headerRef.current) {
-      setHeaderHeight(headerRef.current.offsetHeight); // Get the actual height
+      setHeaderHeight(headerRef.current.offsetHeight);
     }
-  }, []); // Run once on component mount
+  }, []);
 
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/919494947970', '_blank');
   };
 
   const handlePhoneClick = () => {
-    if (window.navigator.userAgent.includes('Mobile')) {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+
+    if (isMobile) {
       window.location.href = 'tel:+919494947970';
     } else {
       window.open('https://wa.me/919494947970', '_blank');
+      alert("You can call us at +91 9494947970 or click 'OK' to chat on WhatsApp.");
     }
   };
 
@@ -31,18 +33,20 @@ const Contact = () => {
     window.location.href = 'mailto:srini.surepally@gmail.com';
   };
 
+  const extraTopPadding = 48; // Define how much white space you want (e.g., 48px, equivalent to Tailwind's pt-12)
+
   return (
     <div className="min-h-screen">
-      <Header ref={headerRef} /> {/* Pass the ref here */}
+      <Header ref={headerRef} />
       <FloatingWhatsApp />
 
-      {/* Apply dynamic padding-top based on headerHeight */}
-      <div className="pb-16" style={{ paddingTop: `${headerHeight}px` }}> {/* Use dynamic height here */}
+      {/* MODIFIED: Add extraTopPadding to the paddingTop calculation */}
+      <div className="pb-16" style={{ paddingTop: `${headerHeight + extraTopPadding}px` }}>
         <div className="max-w-7xl mx-auto px-4">
-          {/* Page Title */}
           <div className="text-center mb-12">
             <div className="bg-gradient-to-r from-[#0E0E55] via-[#1A1A77] to-[#2626AA] p-8 rounded-2xl shadow-xl mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {/* MODIFIED: Changed mb-[100px] to mb-0 to minimize space between the two headings */}
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
                 ORDER IN BULK OR INNOVATE WITH US?
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold text-yellow-300">
@@ -51,14 +55,10 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Main Contact Section */}
           <section className="mb-16">
-            {/* MODIFIED: Use flex flex-col for mobile, and then lg:grid for desktop.
-                Order classes will control the mobile layout. */}
-            <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2"> {/* <--- MODIFIED HERE */}
+            <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2">
 
-              {/* Contact Information & Address - NEW WRAPPER AND ORDERING */}
-              <div className="flex flex-col justify-start space-y-8 order-first lg:order-none"> {/* <--- MODIFIED HERE */}
+              <div className="flex flex-col justify-start space-y-8 order-first lg:order-none">
                 <div
                   onClick={handleEmailClick}
                   className="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#0E0E55]"
@@ -101,7 +101,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Office Address */}
                 <div className="bg-gradient-to-r from-[#0E0E55]/5 to-[#1A1A77]/5 p-6 rounded-lg border border-[#0E0E55]/20">
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Office Address</h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -112,10 +111,9 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Section - ORDERING FOR MOBILE AND DESKTOP */}
-              <div className="h-[400px] lg:h-auto order-last lg:order-none"> {/* <--- MODIFIED HERE */}
+              <div className="h-[400px] lg:h-auto order-last lg:order-none">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.9421522818967!2d78.50293121487667!3d17.41160358806297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba333f21b7643%3A0xb697b0d2d3e1d1c!2sDoctors%20Colony%2C%20Saroornagar%2C%20Hyderabad%2C%20Telangana%20500035!5e0!3m2!1sen!2sin!4v1678901234567!5m2!1sen!2sin" // <--- REPLACE THIS ENTIRE SRC WITH YOUR COPIED SRC
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5649061614945!2d78.52980757508823!3d17.38799838349259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba860f4e4277b%3A0xf673f8e5d0a51465!2sDoctors%20Colony%2C%20Saroornagar%2C%20Hyderabad%2C%20Telangana%20500035%2C%20India!5e0!3m2!1sen!2sus!4v1719736341258!5m2!1sen!2sus" // Remember to replace with your actual Google Maps embed URL
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -129,7 +127,6 @@ const Contact = () => {
 
             </div>
 
-            {/* Business Hours - No change here */}
             <div className="mt-12 bg-gradient-to-r from-[#0E0E55]/10 to-[#1A1A77]/10 p-8 rounded-lg border border-[#0E0E55]/20">
               <div className="flex items-center justify-center space-x-4 mb-4">
                 <Clock className="text-[#0E0E55]" size={32} />

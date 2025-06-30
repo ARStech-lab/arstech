@@ -13,16 +13,16 @@ const Header = forwardRef((props, ref: Ref<HTMLElement>) => {
             <span className="font-medium">Connect with us:</span>
             <div className="flex space-x-3 items-center">
               <a href="https://wa.me/919494947970" className="hover:scale-110 transition-transform">
-                <img src="/assets/header/whatsapp.svg" alt="WhatsApp" className="h-[22px] w-[auto]" />
+                <img src="./assets/header/whatsapp.svg" alt="WhatsApp" className="h-[22px] w-[auto]" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCdJ6XiwznMjCKmT8s8X7D7w" className="hover:scale-110 transition-transform">
+                <img src="./assets/header/youtube.svg" alt="YouTube" className="h-[22px] w-[auto]" />
+              </a>
+              <a href="https://www.instagram.com/connect.arstech/" className="hover:scale-110 transition-transform">
+                <img src="./assets/header/instagram.svg" alt="Instagram" className="h-[22px] w-[auto]" />
               </a>
               <a href="#" className="hover:scale-110 transition-transform">
-                <img src="/assets/header/youtube.svg" alt="YouTube" className="h-[22px] w-[auto]" />
-              </a>
-              <a href="#" className="hover:scale-110 transition-transform">
-                <img src="/assets/header/instagram.svg" alt="Instagram" className="h-[22px] w-[auto]" />
-              </a>
-              <a href="#" className="hover:scale-110 transition-transform">
-                <img src="/assets/header/facebook.svg" alt="Facebook" className="h-[22px] w-[auto]" />
+                <img src="./assets/header/facebook.svg" alt="Facebook" className="h-[22px] w-[auto]" />
               </a>
             </div>
           </div>
@@ -30,10 +30,10 @@ const Header = forwardRef((props, ref: Ref<HTMLElement>) => {
             <span className="font-medium">Buy our products at:</span>
             <div className="flex space-x-3 items-center">
               <a href="https://www.indiamart.com" target="_blank" rel="noopener noreferrer" className="px-2 py-1">
-                <img src="/assets/header/indiamart.svg" alt="Indiamart" className="h-[22px] w-[auto]" />
+                <img src="./assets/header/indiamart.svg" alt="Indiamart" className="h-[22px] w-[auto]" />
               </a>
               <a href="https://www.justdial.com" target="_blank" rel="noopener noreferrer" className="">
-                <img src="/assets/header/justdail.svg" alt="Justdial" className="h-[22px] w-[auto]" />
+                <img src="./assets/header/justdail.svg" alt="Justdial" className="h-[22px] w-[auto]" />
               </a>
             </div>
           </div>
@@ -46,7 +46,7 @@ const Header = forwardRef((props, ref: Ref<HTMLElement>) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <div>
-                <img src="/assets/header/ARS_TECH_w.png" alt="Facebook" className="h-[65px] w-[auto]" />
+                <img src="./assets/header/ARS_TECH_w.png" alt="ARSTECH" className="h-[65px] w-[auto]" />
               </div>
             </Link>
           </div>

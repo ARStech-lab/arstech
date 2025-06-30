@@ -82,11 +82,12 @@ const Index = () => {
   }, [isPlaying]);
 
   const products = Array.from({ length: 15 }, (_, i) => ({
-    id: i + 1,
-    name: `Product ${String.fromCharCode(65 + i)}`,
-    image: `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=320&fit=crop&q=80&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format`,
-    useCases: ["Home Use", "Commercial Use", "Industrial Use"]
-  }));
+  id: i + 1,
+  name: `Product ${String.fromCharCode(65 + i)}`,
+  // Corrected: Use a template literal for the image path to embed variables
+  image: `/assets/product-img/${i + 1}.webp`,
+  useCases: ["Home Use", "Commercial Use", "Industrial Use"]
+}));
 
   const handleNextProduct = () => {
     setCurrentProductIndex((prevIndex) => {

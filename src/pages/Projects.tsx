@@ -36,7 +36,7 @@ const Projects = () => {
       challenge: "A 200-unit residential complex needed automated water distribution and monitoring system to ensure equitable water supply and prevent wastage.",
       solution: "Implemented IoT-enabled water level controllers with real-time monitoring dashboard, automated pump controls, and SMS alerts for maintenance.",
       outcome: "40% reduction in water wastage and 99.9% uptime for water supply system.",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop"
+      image: "./assets/projects/1.webp"
     },
     {
       id: 2,
@@ -44,7 +44,7 @@ const Projects = () => {
       challenge: "Manufacturing unit required intelligent power distribution system to optimize energy consumption and prevent equipment damage from power fluctuations.",
       solution: "Developed custom power management controllers with load balancing, surge protection, and predictive maintenance capabilities.",
       outcome: "25% energy savings and zero equipment failures due to power issues.",
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=400&fit=crop"
+      image: "./assets/projects/2.webp"
     },
     {
       id: 3,
@@ -52,7 +52,7 @@ const Projects = () => {
       challenge: "Agriculture facility needed precise environmental control for optimal crop growth with minimal human intervention.",
       solution: "Created integrated system controlling irrigation, ventilation, temperature, and humidity with weather forecast integration.",
       outcome: "35% increase in crop yield and 50% reduction in manual monitoring time.",
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop"
+      image: "./assets/projects/3.webp"
     },
     {
       id: 4,
@@ -60,7 +60,7 @@ const Projects = () => {
       challenge: "Educational institution wanted to reduce energy costs while maintaining optimal learning environment across multiple buildings.",
       solution: "Implemented centralized control system for lighting, HVAC, and power distribution with occupancy-based automation.",
       outcome: "30% reduction in energy bills and improved campus-wide environmental monitoring.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+      image: "./assets/projects/4.webp"
     }
   ];
 

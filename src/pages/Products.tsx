@@ -1,27 +1,138 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
-// import { useRouter } from 'next/router'; // REMOVED
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
-  const [selectedApplication, setSelectedApplication] = useState<string[]>([]);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  // const router = useRouter(); // REMOVED
 
-  const categories = ["Water Management", "Power Management", "Timer Controllers", "Network Based"];
-  const applications = ["Home", "Apartments", "Commercial Space", "Industrial Use"];
+  // Define your main categories here.
+  const categories = [
+    "Power Management",
+    "Water Management",
+    "Wireless Controllers",
+    "Mobile Based Controllers",
+    "Time Controllers"
+  ];
 
-  const products = Array.from({ length: 15 }, (_, i) => ({
-    id: i + 1,
-    name: `Product ${String.fromCharCode(65 + i)}`,
-    category: categories[i % categories.length],
-    applications: [applications[i % applications.length]],
-    // Set both the display image and the lightbox info image paths
-    image: `/assets/product-img/${i + 1}.webp`,
-    infoImage: `/assets/product-img/${i + 1}.webp`
-  }));
+  // Define your products. Each product's 'category' is now an ARRAY of strings.
+  // I've assigned multiple categories where it made sense based on the product names.
+  const products = [
+    {
+      id: 1,
+      name: "Home Protector (1 Phase)",
+      category: ["Power Management"], // Example: Multiple categories
+      image: "./assets/product-img/1.webp",
+      detailImage: "./assets/product-img-info/1.webp"
+    },
+    {
+      id: 2,
+      name: "Home Protector (3 Phase)",
+      category: ["Power Management"], // Example: Multiple categories
+      image: "./assets/product-img/2.webp",
+      detailImage: "./assets/product-img-info/2.webp"
+    },
+    {
+      id: 3,
+      name: "Semi-AWM System with Visual Indication",
+      category: ["Water Management"],
+      image: "./assets/product-img/3.webp",
+      detailImage: "./assets/product-img-info/3.webp"
+    },
+    {
+      id: 4,
+      name: "Fully AWM System (1RL)",
+      category: ["Water Management"],
+      image: "./assets/product-img/4.webp",
+      detailImage: "./assets/product-img-info/4.webp"
+    },
+    {
+      id: 5,
+      name: "Fully AWM System (2RL)",
+      category: ["Water Management"],
+      image: "./assets/product-img/5.webp",
+      detailImage: "./assets/product-img-info/5.webp"
+    },
+    {
+      id: 6,
+      name: "Fully AWM System (3RL)",
+      category: ["Water Management"],
+      image: "./assets/product-img/6.webp",
+      detailImage: "./assets/product-img-info/6.webp"
+    },
+    {
+      id: 7,
+      name: "Water Level Indicator with Alarm",
+      category: ["Water Management", "Smart Home Devices"],
+      image: "./assets/product-img/7.webp",
+      detailImage: "./assets/product-img-info/7.webp"
+    },
+    {
+      id: 8,
+      name: "Fully AWM System with Dual Motor Controller",
+      category: ["Water Management"],
+      image: "./assets/product-img/8.webp",
+      detailImage: "./assets/product-img-info/8.webp"
+    },
+    {
+      id: 9,
+      name: "Wireless Water Management System with Visual Indication",
+      category: ["Water Management", "Wireless Controllers"],
+      image: "./assets/product-img/9.webp",
+      detailImage: "./assets/product-img-info/9.webp"
+    },
+    {
+      id: 10,
+      name: "Wireless Water Management System (1RL)",
+      category: ["Water Management", "Wireless Controllers"],
+      image: "./assets/product-img/10.webp",
+      detailImage: "./assets/product-img-info/10.webp"
+    },
+    {
+      id: 11,
+      name: "Wireless Water Management System (2RL)",
+      category: ["Water Management", "Wireless Controllers"],
+      image: "./assets/product-img/11.webp",
+      detailImage: "./assets/product-img-info/11.webp"
+    },
+    {
+      id: 12,
+      name: "Wireless Water Management System (3RL)",
+      category: ["Water Management", "Wireless Controllers"],
+      image: "./assets/product-img/12.webp",
+      detailImage: "./assets/product-img-info/12.webp"
+    },
+    {
+      id: 13,
+      name: "Wireless Water Management System with GSM (1RL, 1 Phase)",
+      category: ["Water Management", "Wireless Controllers", "Mobile Based Controllers"],
+      image: "./assets/product-img/13.webp",
+      detailImage: "./assets/product-img-info/13.webp"
+    },
+    {
+      id: 14,
+      name: "Wireless Water Management System with GSM (3RL, 3 Phase)",
+      category: ["Water Management", "Wireless Controllers", "Mobile Based Controllers"],
+      image: "./assets/product-img/14.webp",
+      detailImage: "./assets/product-img-info/14.webp"
+    },
+    {
+      id: 15,
+      name: "Digital Cyclic Timer",
+      category: ["Time Controllers"],
+      image: "./assets/product-img/15.webp",
+      detailImage: "./assets/product-img-info/15.webp"
+    },
+    {
+      id: 16,
+      name: "Analog Cyclic Timer",
+      category: ["Time Controllers"],
+      image: "./assets/product-img/15.webp", // Reusing image 15 for analog timer
+      detailImage: "./assets/product-img-info/15.webp" // Reusing info image 15
+    },
+  ];
 
   // This now reads the URL hash to scroll to the product.
   useEffect(() => {
@@ -51,19 +162,14 @@ const Products = () => {
     );
   };
 
-  const handleApplicationChange = (application: string) => {
-    setSelectedApplication(prev =>
-      prev.includes(application)
-        ? prev.filter(a => a !== application)
-        : [...prev, application]
-    );
-  };
-
   const filteredProducts = products.filter(product => {
-    const categoryMatch = selectedCategory.length === 0 || selectedCategory.includes(product.category);
-    const applicationMatch = selectedApplication.length === 0 ||
-      product.applications.some(app => selectedApplication.includes(app));
-    return categoryMatch && applicationMatch;
+    // If no category is selected, show all products
+    if (selectedCategory.length === 0) {
+      return true;
+    }
+    // Check if ANY of the product's categories are included in the selected categories
+    // This is the key logic for multi-category filtering
+    return product.category.some(cat => selectedCategory.includes(cat));
   });
 
   const openLightbox = (image: string) => {
@@ -75,7 +181,6 @@ const Products = () => {
   };
 
   const handleOrderClick = () => {
-    // This functionality remains the same (opens WhatsApp)
     window.open('https://wa.me/919494947970', '_blank');
   };
 
@@ -119,23 +224,6 @@ const Products = () => {
                     ))}
                   </div>
                 </div>
-
-                <div>
-                  <h4 className="font-medium mb-3">Application</h4>
-                  <div className="space-y-2">
-                    {applications.map(application => (
-                      <label key={application} className="flex items-center space-x-2">
-                        <input
-                          type="checkbox"
-                          checked={selectedApplication.includes(application)}
-                          onChange={() => handleApplicationChange(application)}
-                          className="rounded border-border"
-                        />
-                        <span className="text-sm">{application}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -147,13 +235,13 @@ const Products = () => {
                     key={product.id}
                     className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 scroll-mt-28"
                   >
-                    {/* Image on card opens infoImage in lightbox */}
+                    {/* Image on card opens 'product.image' in lightbox */}
                     <div
                       className="relative overflow-hidden cursor-pointer"
-                      onClick={() => openLightbox(product.infoImage)}
+                      onClick={() => openLightbox(product.image)}
                     >
                       <img
-                        src={product.image} // This is the image shown on the product card
+                        src={product.image}
                         alt={product.name}
                         className="w-full h-64 object-cover zoom-hover transition-transform duration-300"
                       />
@@ -162,13 +250,14 @@ const Products = () => {
                       <h3 className="text-xl font-semibold text-card-foreground mb-3">
                         {product.name}
                       </h3>
+                      {/* Displaying product categories */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {product.applications.map(app => (
+                        {product.category.map(cat => (
                           <span
-                            key={app}
+                            key={`${product.id}-${cat}`} // Ensure unique key for each category tag
                             className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
                           >
-                            {app}
+                            {cat}
                           </span>
                         ))}
                       </div>
@@ -184,9 +273,9 @@ const Products = () => {
                         >
                           Order for Price
                         </button>
-                        {/* More Details button (opens lightbox with infoImage) */}
+                        {/* More Details button (opens lightbox with 'product.detailImage') */}
                         <button
-                          onClick={() => openLightbox(product.infoImage)}
+                          onClick={() => openLightbox(product.detailImage)}
                           className="block w-full
                                      bg-gradient-to-r from-[#ff2c2c] to-[#004578]
                                      text-white py-2 px-4 rounded-lg

@@ -10,42 +10,42 @@ const HeroSlider = () => {
   const slides = [ 
     {
       id: 1,
-      image: "/assets/hero/1.webp",
+      image: "./assets/hero/1.webp",
       link: "/products"
     },
     {
       id: 2,
-      image: "/assets/hero/2.webp",
+      image: "./assets/hero/2.webp",
       link: "/products#water-management"
     },
     {
       id: 3,
-      image: "/assets/hero/3.webp",
+      image: "./assets/hero/3.webp",
       link: "/products#power-management"
     },
     {
       id: 4,
-      image: "/assets/hero/4.webp",
+      image: "./assets/hero/4.webp",
       link: "/products#timer-controllers"
     },
     {
       id: 5,
-      image: "/assets/hero/5.webp",
+      image: "./assets/hero/5.webp",
       link: "/products#network-based"
     },
     {
       id: 6,
-      image: "/assets/hero/6.webp",
+      image: "./assets/hero/6.webp",
       link: "/products#custom"
     },
     {
       id: 7,
-      image: "/assets/hero/7.webp",
+      image: "./assets/hero/7.webp",
       link: "/products#industrial"
     },
     {
       id: 8,
-      image: "/assets/hero/8.webp",
+      image: "./assets/hero/1.jpg",
       link: "/products#smart-home"
     }
   ];
