@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -36,7 +35,7 @@ const Projects = () => {
       challenge: "A 200-unit residential complex needed automated water distribution and monitoring system to ensure equitable water supply and prevent wastage.",
       solution: "Implemented IoT-enabled water level controllers with real-time monitoring dashboard, automated pump controls, and SMS alerts for maintenance.",
       outcome: "40% reduction in water wastage and 99.9% uptime for water supply system.",
-      image: "./assets/projects/1.webp"
+      image: "/assets/projects/1.webp" // CORRECTED PATH: Starts from the root (public folder equivalent)
     },
     {
       id: 2,
@@ -44,7 +43,7 @@ const Projects = () => {
       challenge: "Manufacturing unit required intelligent power distribution system to optimize energy consumption and prevent equipment damage from power fluctuations.",
       solution: "Developed custom power management controllers with load balancing, surge protection, and predictive maintenance capabilities.",
       outcome: "25% energy savings and zero equipment failures due to power issues.",
-      image: "./assets/projects/2.webp"
+      image: "/assets/projects/2.webp" // CORRECTED PATH
     },
     {
       id: 3,
@@ -52,7 +51,7 @@ const Projects = () => {
       challenge: "Agriculture facility needed precise environmental control for optimal crop growth with minimal human intervention.",
       solution: "Created integrated system controlling irrigation, ventilation, temperature, and humidity with weather forecast integration.",
       outcome: "35% increase in crop yield and 50% reduction in manual monitoring time.",
-      image: "./assets/projects/3.webp"
+      image: "/assets/projects/3.webp" // CORRECTED PATH
     },
     {
       id: 4,
@@ -60,7 +59,7 @@ const Projects = () => {
       challenge: "Educational institution wanted to reduce energy costs while maintaining optimal learning environment across multiple buildings.",
       solution: "Implemented centralized control system for lighting, HVAC, and power distribution with occupancy-based automation.",
       outcome: "30% reduction in energy bills and improved campus-wide environmental monitoring.",
-      image: "./assets/projects/4.webp"
+      image: "/assets/projects/4.webp" // CORRECTED PATH
     }
   ];
 
@@ -68,6 +67,7 @@ const Projects = () => {
     <div className="min-h-screen">
       <Header />
       <FloatingWhatsApp />
+      {/* These H1s for spacing might be better handled with CSS padding/margin for production */}
       <h1> random text to space </h1>
       <h1> random text to space </h1>
       <div className="pt-32 pb-16">

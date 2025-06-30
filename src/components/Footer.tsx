@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <img
-              src="./assets/header/ARS_TECH_w.png"
+              src="./public/assets/header/ARS_TECH_w.png"
               alt="ARSTECH Logo"
               className="h-16"
             />
